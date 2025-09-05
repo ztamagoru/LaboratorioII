@@ -4,6 +4,10 @@ const speed : float = 5.0
 const jump_velocity : float = 4.5
 const gravity : float = 9.0
 
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
