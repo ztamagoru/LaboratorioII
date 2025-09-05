@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://lo8hel43hvuk"]
+
+[ext_resource type="Script" uid="uid://cyds8q3dmlcb3" path="res://scenes/components/player/player.gd" id="1_1xbud"]
+[ext_resource type="Script" uid="uid://bx85bjwpsd5se" path="res://scenes/components/player/player_camera.gd" id="2_2oloj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_imdkq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xbud"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_1xbud")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_imdkq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1xbud")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.722118, 0)
+script = ExtResource("2_2oloj")
+camera_sensitivity = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
