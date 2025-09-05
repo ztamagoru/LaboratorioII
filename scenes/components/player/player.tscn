@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://lo8hel43hvuk"]
+[gd_scene load_steps=10 format=3 uid="uid://lo8hel43hvuk"]
 
 [ext_resource type="Script" uid="uid://cyds8q3dmlcb3" path="res://scenes/components/player/player.gd" id="1_1xbud"]
 [ext_resource type="Script" uid="uid://bx85bjwpsd5se" path="res://scenes/components/player/player_camera.gd" id="2_2oloj"]
+[ext_resource type="Script" uid="uid://djsaxmjtfx8g3" path="res://scripts/fsm/fsm.gd" id="3_c8uok"]
+[ext_resource type="Script" uid="uid://mv8nikkecad4" path="res://scenes/components/player/states/idle.gd" id="4_tcka2"]
+[ext_resource type="Script" uid="uid://6sj3ia7fne8w" path="res://scenes/components/player/states/fall.gd" id="5_frspl"]
+[ext_resource type="Script" uid="uid://sxd7rl0nyqv7" path="res://scenes/components/player/states/jump.gd" id="6_aes0s"]
+[ext_resource type="Script" uid="uid://mv5gfj0t68y4" path="res://scenes/components/player/states/walk.gd" id="7_tw4o5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_imdkq"]
 
@@ -22,3 +27,23 @@ script = ExtResource("2_2oloj")
 camera_sensitivity = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("3_c8uok")
+player = NodePath("..")
+
+[node name="Idle" type="Node3D" parent="FSM"]
+script = ExtResource("4_tcka2")
+metadata/_custom_type_script = "uid://jisrfp474nbq"
+
+[node name="Fall" type="Node3D" parent="FSM"]
+script = ExtResource("5_frspl")
+metadata/_custom_type_script = "uid://jisrfp474nbq"
+
+[node name="Jump" type="Node3D" parent="FSM"]
+script = ExtResource("6_aes0s")
+metadata/_custom_type_script = "uid://jisrfp474nbq"
+
+[node name="Walk" type="Node3D" parent="FSM"]
+script = ExtResource("7_tw4o5")
+metadata/_custom_type_script = "uid://jisrfp474nbq"
