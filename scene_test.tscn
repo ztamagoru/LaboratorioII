@@ -31,3 +31,10 @@ mesh = SubResource("BoxMesh_0n4ab")
 
 [node name="Player" parent="." instance=ExtResource("2_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.20644, 0)
+light_energy = 16.665
+shadow_enabled = true
+spot_range = 7.825
+spot_angle = 59.05
