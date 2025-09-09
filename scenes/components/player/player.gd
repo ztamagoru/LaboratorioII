@@ -3,7 +3,13 @@ extends CharacterBody3D
 @export var animation_player : AnimationPlayer
 
 const speed : float = 5.0
+const sprint_multiplier : float = 2.0
 const crouch_speed : float = 4.0
+
+var current_speed : float = speed
+
+const walking_head_bop : float = 2.0
+
 const jump_force : float = 3.5
 const jump_velocity : float = 4.5
 const gravity : float = 8.0
@@ -17,6 +23,12 @@ func _process(_delta) -> void:
 func _input(event):
 	if event.is_action_pressed("move_crouch"):
 		toggle_crouch()
+	
+	if event.is_action_pressed("move_sprint"):
+		current_speed = speed * sprint_multiplier
+	
+	if event.is_action_released("move_sprint"):
+		current_speed = speed
 
 func toggle_crouch():
 	if _is_crouching:
