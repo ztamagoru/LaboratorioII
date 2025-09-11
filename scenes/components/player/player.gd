@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var animation_player : AnimationPlayer
 
 const speed : float = 5.0
-const sprint_multiplier : float = 2.0
+const sprint_multiplier : float = 3.0
 const crouch_speed : float = 4.0
 
 var current_speed : float = speed
