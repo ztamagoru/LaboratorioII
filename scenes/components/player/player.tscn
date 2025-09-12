@@ -18,7 +18,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("CollisionShape3D:shape:height")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -30,7 +30,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("CollisionShape3D:position")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -42,7 +42,7 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -54,7 +54,7 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Camera3D:position")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -138,9 +138,10 @@ _data = {
 &"head_bop": SubResource("Animation_da40g")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player", "flashlight")]
 script = ExtResource("1_1xbud")
 animation_player = NodePath("AnimationPlayer")
+flashlight = NodePath("Camera3D/Flashlight")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -154,6 +155,10 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("2_2oloj")
 camera_sensitivity = 0.5
+
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
+spot_range = 18.3426
+spot_angle = 37.9391
 
 [node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_c8uok")

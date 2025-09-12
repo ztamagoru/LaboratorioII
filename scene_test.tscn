@@ -29,12 +29,44 @@ transform = Transform3D(0.598692, 0, 0, 0, 0.598692, 0, 0, 0, 0.598692, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_ycaat")
 mesh = SubResource("BoxMesh_0n4ab")
 
+[node name="Floor2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.136935, 0, 0, 0, 22.8578, 0, 0, 0, 0.0461614, 2.09814, 3.1798, 9.17083)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+transform = Transform3D(0.598692, 0, 0, 0, 0.598692, 0, 0, 0, 0.598692, 0, 0, 0)
+shape = SubResource("BoxShape3D_k8rpb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor2"]
+transform = Transform3D(0.598692, 0, 0, 0, 0.598692, 0, 0, 0, 0.598692, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ycaat")
+mesh = SubResource("BoxMesh_0n4ab")
+
+[node name="Floor3" type="StaticBody3D" parent="."]
+transform = Transform3D(0.136935, 0, 0, 0, 22.8578, 0, 0, 0, 0.0461614, -9.85366, 3.1798, 2.74946)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor3"]
+transform = Transform3D(0.598692, 0, 0, 0, 0.598692, 0, 0, 0, 0.598692, 0, 0, 0)
+shape = SubResource("BoxShape3D_k8rpb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor3"]
+transform = Transform3D(0.598692, 0, 0, 0, 0.598692, 0, 0, 0, 0.598692, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ycaat")
+mesh = SubResource("BoxMesh_0n4ab")
+
+[node name="Floor4" type="StaticBody3D" parent="."]
+transform = Transform3D(0.136935, 0, 0, 0, 22.8578, 0, 0, 0, 0.0461614, 7.0163, 3.1798, 1.89069)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor4"]
+transform = Transform3D(0.598692, 0, 0, 0, 0.598692, 0, 0, 0, 0.598692, 0, 0, 0)
+shape = SubResource("BoxShape3D_k8rpb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor4"]
+transform = Transform3D(0.598692, 0, 0, 0, 0.598692, 0, 0, 0, 0.598692, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ycaat")
+mesh = SubResource("BoxMesh_0n4ab")
+
 [node name="Player" parent="." instance=ExtResource("2_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 16.5437, 0)
-light_energy = 16.0
-shadow_enabled = true
-spot_range = 37.869
-spot_angle = 59.05
