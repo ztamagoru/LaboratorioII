@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://lo8hel43hvuk"]
+[gd_scene load_steps=16 format=3 uid="uid://lo8hel43hvuk"]
 
 [ext_resource type="Script" uid="uid://cyds8q3dmlcb3" path="res://scenes/components/player/player.gd" id="1_1xbud"]
 [ext_resource type="Script" uid="uid://bx85bjwpsd5se" path="res://scenes/components/player/player_camera.gd" id="2_2oloj"]
 [ext_resource type="Script" uid="uid://djsaxmjtfx8g3" path="res://scripts/fsm/fsm.gd" id="3_c8uok"]
+[ext_resource type="Script" uid="uid://dx464xya4pslq" path="res://scenes/components/enemies/flashlight enemy/flash_area.gd" id="3_vj2w8"]
 [ext_resource type="Script" uid="uid://mv8nikkecad4" path="res://scenes/components/player/states/idle.gd" id="4_tcka2"]
 [ext_resource type="Script" uid="uid://6sj3ia7fne8w" path="res://scenes/components/player/states/fall.gd" id="5_frspl"]
 [ext_resource type="Script" uid="uid://sxd7rl0nyqv7" path="res://scenes/components/player/states/jump.gd" id="6_aes0s"]
@@ -11,6 +12,60 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xbud"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_imdkq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_da40g"]
+size = Vector3(3.46613, 2.40717, 5.97583)
+
+[sub_resource type="Animation" id="Animation_vj2w8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:shape:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_tw4o5"]
 resource_name = "crouch"
@@ -80,57 +135,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5, 0), Vector3(0, 1, 0), Vector3(0, 1.5, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_vj2w8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:shape:height")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 2, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_da40g"]
 _data = {
 &"RESET": SubResource("Animation_vj2w8"),
@@ -159,6 +163,13 @@ camera_sensitivity = 0.5
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
 spot_range = 18.3426
 spot_angle = 37.9391
+
+[node name="FlashArea" type="Area3D" parent="Camera3D/Flashlight"]
+script = ExtResource("3_vj2w8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Flashlight/FlashArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0844281, 0.703583, -2.88557)
+shape = SubResource("BoxShape3D_da40g")
 
 [node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_c8uok")

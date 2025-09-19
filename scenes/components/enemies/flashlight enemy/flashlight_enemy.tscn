@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_prel8"]
 
-[node name="FlashlightEnemy" type="CharacterBody3D"]
+[node name="FlashlightEnemy" type="CharacterBody3D" groups=["Enemigo"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_14g0x")

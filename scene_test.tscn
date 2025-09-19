@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvm6cqln8txh0"]
+[gd_scene load_steps=7 format=3 uid="uid://b8td54wes58m3"]
 
 [ext_resource type="Texture2D" uid="uid://b5lk0cj8gunfw" path="res://icon.svg" id="1_oqoec"]
 [ext_resource type="PackedScene" uid="uid://lo8hel43hvuk" path="res://scenes/components/player/player.tscn" id="2_6v5sk"]
+[ext_resource type="PackedScene" uid="uid://nak2ja0pbcll" path="res://scenes/components/enemies/flashlight enemy/flashlight_enemy.tscn" id="3_6v5sk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8rpb"]
 size = Vector3(100, 1, 100)
@@ -70,3 +71,6 @@ mesh = SubResource("BoxMesh_0n4ab")
 
 [node name="Player" parent="." instance=ExtResource("2_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="FlashlightEnemy" parent="." instance=ExtResource("3_6v5sk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.80465, 1.53086, -12.2851)
