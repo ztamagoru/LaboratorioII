@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvm6cqln8txh0"]
+[gd_scene load_steps=7 format=3 uid="uid://cvm6cqln8txh0"]
 
 [ext_resource type="Texture2D" uid="uid://b5lk0cj8gunfw" path="res://icon.svg" id="1_oqoec"]
 [ext_resource type="PackedScene" uid="uid://lo8hel43hvuk" path="res://scenes/components/player/player.tscn" id="2_6v5sk"]
@@ -13,6 +13,15 @@ uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0n4ab"]
 size = Vector3(100, 1, 100)
+
+[sub_resource type="Curve3D" id="Curve3D_oqoec"]
+closed = true
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 30, 0, -30, 0, 0, 0, 0, 0, 0, 30, 0, 30, 0, 0, 0, 0, 0, 0, -30, 0, 30, 0, 0, 0, 0, 0, 0, -30, 0, -30),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="Node3D" type="Node3D"]
 
@@ -70,3 +79,10 @@ mesh = SubResource("BoxMesh_0n4ab")
 
 [node name="Player" parent="." instance=ExtResource("2_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59092, 0)
+curve = SubResource("Curve3D_oqoec")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30, 0, -30)
