@@ -29,9 +29,12 @@ func _ready():
 			#print("Dentro")
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Enemigo") and player._is_flashlight_on:
-		print("Dentro")
+	if body.is_in_group("Enemigo"):
+		if player._is_flashlight_on:
+			print(body.name + " está iluminado!")
+		else:
+			print(body.name + " está en el área, pero la linterna está apagada")
 
 func _on_body_exited(body: Node) -> void:
 	if body.is_in_group("Enemigo"):
-		print("Fuera")
+		print(body.name + " salió del área de la linterna")
