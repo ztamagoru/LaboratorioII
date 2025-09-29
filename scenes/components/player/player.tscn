@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://lo8hel43hvuk"]
+[gd_scene load_steps=17 format=3 uid="uid://lo8hel43hvuk"]
 
 [ext_resource type="Script" uid="uid://cyds8q3dmlcb3" path="res://scenes/components/player/player.gd" id="1_1xbud"]
 [ext_resource type="Script" uid="uid://bx85bjwpsd5se" path="res://scenes/components/player/player_camera.gd" id="2_2oloj"]
@@ -7,10 +7,64 @@
 [ext_resource type="Script" uid="uid://6sj3ia7fne8w" path="res://scenes/components/player/states/fall.gd" id="5_frspl"]
 [ext_resource type="Script" uid="uid://sxd7rl0nyqv7" path="res://scenes/components/player/states/jump.gd" id="6_aes0s"]
 [ext_resource type="Script" uid="uid://mv5gfj0t68y4" path="res://scenes/components/player/states/walk.gd" id="7_tw4o5"]
+[ext_resource type="Script" uid="uid://o4pw5m7i5k0q" path="res://scenes/components/player/player_sfx.gd" id="8_vj2w8"]
+[ext_resource type="AudioStream" uid="uid://cdlnxtw73pf1w" path="res://assets/audio/sfx/player/Heavy Breathing SFX.mp3" id="9_da40g"]
+[ext_resource type="PackedScene" uid="uid://b8kmbv1scghuu" path="res://scenes/components/hud/in-game/stamina_bar.tscn" id="10_knhup"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xbud"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_imdkq"]
+
+[sub_resource type="Animation" id="Animation_vj2w8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:shape:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_tw4o5"]
 resource_name = "crouch"
@@ -80,57 +134,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5, 0), Vector3(0, 1, 0), Vector3(0, 1.5, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_vj2w8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:shape:height")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 2, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_da40g"]
 _data = {
 &"RESET": SubResource("Animation_vj2w8"),
@@ -184,3 +187,21 @@ metadata/_custom_type_script = "uid://jisrfp474nbq"
 libraries = {
 &"": SubResource("AnimationLibrary_da40g")
 }
+
+[node name="SFX" type="Node3D" parent="." node_paths=PackedStringArray("breathing_sfx")]
+script = ExtResource("8_vj2w8")
+breathing_sfx = NodePath("BreathingSFX")
+
+[node name="BreathingSFX" type="AudioStreamPlayer3D" parent="SFX"]
+stream = ExtResource("9_da40g")
+volume_db = -2.5
+bus = &"SFX"
+
+[node name="StaminaRecoveryTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StaminaBarHUD" parent="CanvasLayer" instance=ExtResource("10_knhup")]
+
+[connection signal="timeout" from="StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]
