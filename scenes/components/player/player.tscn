@@ -138,7 +138,7 @@ _data = {
 &"head_bop": SubResource("Animation_da40g")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player", "flashlight")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player", "flashlight") groups=["player"]]
 script = ExtResource("1_1xbud")
 animation_player = NodePath("AnimationPlayer")
 flashlight = NodePath("Camera3D/Flashlight")

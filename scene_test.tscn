@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvm6cqln8txh0"]
+[gd_scene load_steps=8 format=3 uid="uid://cvm6cqln8txh0"]
 
 [ext_resource type="Texture2D" uid="uid://b5lk0cj8gunfw" path="res://icon.svg" id="1_oqoec"]
 [ext_resource type="PackedScene" uid="uid://lo8hel43hvuk" path="res://scenes/components/player/player.tscn" id="2_6v5sk"]
 [ext_resource type="PackedScene" uid="uid://bgtcyrm5itu6l" path="res://scenes/components/enemies/radio enemy/radio.tscn" id="3_6v5sk"]
+[ext_resource type="PackedScene" uid="uid://cpa0wrsfhxj55" path="res://scenes/components/enemies/radio enemy/chair.tscn" id="4_k8rpb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8rpb"]
 size = Vector3(100, 1, 100)
@@ -72,5 +73,11 @@ mesh = SubResource("BoxMesh_0n4ab")
 [node name="Player" parent="." instance=ExtResource("2_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Radio" parent="." instance=ExtResource("3_6v5sk")]
+[node name="Radio" parent="." node_paths=PackedStringArray("chair_area") instance=ExtResource("3_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.51149, 0.615511, -11.2153)
+chair_area = NodePath("../Chair/ChairArea")
+
+[node name="Chair" parent="." instance=ExtResource("4_k8rpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99168, 0.31023, -12.3487)
+
+[editable path="Chair"]
