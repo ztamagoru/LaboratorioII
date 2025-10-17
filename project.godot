@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 run/main_scene="uid://cvm6cqln8txh0"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/convex_cone_shape3d_plugin/plugin.cfg")
+
+[global_group]
+
+Enemigo=""
 
 [input]
 

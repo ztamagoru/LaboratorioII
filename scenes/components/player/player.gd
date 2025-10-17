@@ -4,6 +4,8 @@ extends CharacterBody3D
 
 @export var flashlight : SpotLight3D
 
+#@onready var flash_area = $Camera3D/Flashlight/FlashArea
+
 const speed : float = 5.0
 const sprint_multiplier : float = 3.0
 const crouch_speed : float = 4.0
@@ -46,9 +48,10 @@ func toggle_flashlight():
 	
 	if _is_flashlight_on:
 		flashlight.light_energy = flashlight_energy
+		#flash_area.monitoring = true   # activar detección
 	else:
 		flashlight.light_energy = 0.0
-	
+		#flash_area.monitoring = false  # desactivar detección
 
 func toggle_crouch():
 	if _is_crouching:

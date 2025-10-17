@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://lo8hel43hvuk"]
+[gd_scene load_steps=17 format=3 uid="uid://lo8hel43hvuk"]
 
 [ext_resource type="Script" uid="uid://cyds8q3dmlcb3" path="res://scenes/components/player/player.gd" id="1_1xbud"]
 [ext_resource type="Script" uid="uid://bx85bjwpsd5se" path="res://scenes/components/player/player_camera.gd" id="2_2oloj"]
 [ext_resource type="Script" uid="uid://djsaxmjtfx8g3" path="res://scripts/fsm/fsm.gd" id="3_c8uok"]
+[ext_resource type="Script" uid="uid://dx464xya4pslq" path="res://scenes/components/enemies/flashlight enemy/flash_area.gd" id="3_vj2w8"]
+[ext_resource type="Script" uid="uid://b0nedv7catkax" path="res://addons/convex_cone_shape3d_plugin/src/convex_cone_shape_3d.gd" id="4_da40g"]
 [ext_resource type="Script" uid="uid://mv8nikkecad4" path="res://scenes/components/player/states/idle.gd" id="4_tcka2"]
 [ext_resource type="Script" uid="uid://6sj3ia7fne8w" path="res://scenes/components/player/states/fall.gd" id="5_frspl"]
 [ext_resource type="Script" uid="uid://sxd7rl0nyqv7" path="res://scenes/components/player/states/jump.gd" id="6_aes0s"]
@@ -11,6 +13,65 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xbud"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_imdkq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_knhup"]
+points = PackedVector3Array(0, 6.259903, 0, 7.3766007, -6.259903, 3.055488, 5.645806, -6.259903, 5.645806, 3.055488, -6.259903, 7.3766007, 4.888858e-16, -6.259903, 7.984375, -3.055488, -6.259903, 7.3766007, -5.645806, -6.259903, 5.645806, -7.3766007, -6.259903, 3.055488, -7.984375, -6.259903, 9.777716e-16, -7.3766007, -6.259903, -3.055488, -5.645806, -6.259903, -5.645806, -3.055488, -6.259903, -7.3766007, -1.4666575e-15, -6.259903, -7.984375, 3.055488, -6.259903, -7.3766007, 5.645806, -6.259903, -5.645806, 7.3766007, -6.259903, -3.055488, 7.984375, -6.259903, -1.9555433e-15)
+script = ExtResource("4_da40g")
+height = 12.519806
+radius = 7.984375
+segments = 16
+metadata/_custom_type_script = "uid://b0nedv7catkax"
+
+[sub_resource type="Animation" id="Animation_vj2w8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:shape:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_tw4o5"]
 resource_name = "crouch"
@@ -80,57 +141,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5, 0), Vector3(0, 1, 0), Vector3(0, 1.5, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_vj2w8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape3D:shape:height")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape3D/MeshInstance3D:mesh:height")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 2, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_da40g"]
 _data = {
 &"RESET": SubResource("Animation_vj2w8"),
@@ -141,7 +151,7 @@ _data = {
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player", "flashlight")]
 script = ExtResource("1_1xbud")
 animation_player = NodePath("AnimationPlayer")
-flashlight = NodePath("Camera3D/Flashlight")
+flashlight = NodePath("Camera3D/FlashArea/Flashlight")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -156,9 +166,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("2_2oloj")
 camera_sensitivity = 0.5
 
-[node name="Flashlight" type="SpotLight3D" parent="Camera3D"]
+[node name="FlashArea" type="Area3D" parent="Camera3D" node_paths=PackedStringArray("flashlight")]
+script = ExtResource("3_vj2w8")
+flashlight = NodePath("Flashlight")
+
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D/FlashArea"]
 spot_range = 18.3426
 spot_angle = 37.9391
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/FlashArea"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.3841858e-07, -6.32343)
+shape = SubResource("ConvexPolygonShape3D_knhup")
+debug_color = Color(0.6229908, 0.5278048, 0.22097352, 0.41960785)
 
 [node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_c8uok")
