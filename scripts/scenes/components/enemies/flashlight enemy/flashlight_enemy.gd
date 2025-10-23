@@ -14,14 +14,17 @@ func _ready():
 		if child is Marker3D:
 			stop_points.append(child)
 	
+	#await get_tree().process_frame`
+	
+	Globals.player.flash_area.scare_enemy.connect(continue_path)
 	loop = true
 
 func _physics_process(delta : float):
 	if _is_stopped:
-		stop_timer -= delta
-		
-		if stop_timer <= 0:
-			_is_stopped = false
+		#stop_timer -= delta
+		#
+		#if stop_timer <= 0:
+			#_is_stopped = false
 		return
 	
 	progress += speed * delta
@@ -31,5 +34,10 @@ func _physics_process(delta : float):
 		
 		if distance <= stop_distance:
 			_is_stopped = true
-			stop_timer = stop_time
+			#stop_timer = stop_time
 			break
+
+func continue_path():
+	print("resuming path")
+	
+	_is_stopped = false

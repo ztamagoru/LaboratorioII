@@ -1,10 +1,9 @@
 extends CharacterBody3D
 
 @export var animation_player : AnimationPlayer
-
 @export var flashlight : SpotLight3D
 
-#@onready var flash_area = $Camera3D/Flashlight/FlashArea
+@onready var flash_area : Area3D = $Camera3D/FlashArea
 
 const speed : float = 5.0
 const sprint_multiplier : float = 3.0
@@ -24,6 +23,7 @@ var _is_crouching : bool = false
 var _is_flashlight_on : bool = false
 
 func _ready() -> void:
+	Globals.player = self
 	flashlight.light_energy = 0
 
 func _process(_delta) -> void:

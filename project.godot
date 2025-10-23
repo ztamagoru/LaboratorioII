@@ -14,6 +14,10 @@ run/main_scene="uid://cvm6cqln8txh0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://scripts/singletons/globals.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/convex_cone_shape3d_plugin/plugin.cfg")
