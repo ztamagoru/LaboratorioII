@@ -163,6 +163,7 @@ camera_sensitivity = 0.5
 
 [node name="FlashArea" type="Area3D" parent="Camera3D"]
 script = ExtResource("3_vj2w8")
+message = "chupala"
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D/FlashArea"]
 spot_range = 18.3426
@@ -172,6 +173,9 @@ spot_angle = 37.9391
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.3841858e-07, -1.9888802)
 shape = SubResource("CylinderShape3D_vj2w8")
 debug_color = Color(0.6229908, 0.5278048, 0.22097352, 0.41960785)
+
+[node name="FlashlightTimer" type="Timer" parent="Camera3D/FlashArea"]
+one_shot = true
 
 [node name="FSM" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_c8uok")
@@ -197,3 +201,5 @@ metadata/_custom_type_script = "uid://jisrfp474nbq"
 libraries = {
 &"": SubResource("AnimationLibrary_da40g")
 }
+
+[connection signal="timeout" from="Camera3D/FlashArea/FlashlightTimer" to="Camera3D/FlashArea" method="_on_flashlight_timer_timeout"]

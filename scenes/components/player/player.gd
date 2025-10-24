@@ -20,7 +20,9 @@ const gravity : float = 8.0
 const flashlight_energy : float = 15.0
 
 var _is_crouching : bool = false
-var _is_flashlight_on : bool = false
+var _is_flashlight_on_player : bool = false
+var _is_flashlight_on_code : bool = false
+var _is_flashlight_locked : bool = false
 
 func _ready() -> void:
 	Globals.player = self
@@ -35,6 +37,9 @@ func _input(event):
 		toggle_crouch()
 	
 	if event.is_action_pressed("flashlight"):
+		if _is_flashlight_locked:
+			return
+		_is_flashlight_on_player = !_is_flashlight_on_player
 		toggle_flashlight()
 	
 	if event.is_action_pressed("move_sprint"):
@@ -44,14 +49,12 @@ func _input(event):
 		current_speed = speed
 
 func toggle_flashlight():
-	_is_flashlight_on = !_is_flashlight_on
+	_is_flashlight_on_code = !_is_flashlight_on_code
 	
-	if _is_flashlight_on:
+	if _is_flashlight_on_code:
 		flashlight.light_energy = flashlight_energy
-		#flash_area.monitoring = true   # activar detección
 	else:
 		flashlight.light_energy = 0.0
-		#flash_area.monitoring = false  # desactivar detección
 
 func toggle_crouch():
 	if _is_crouching:

@@ -10,8 +10,8 @@ var _is_stopped : bool = false
 @onready var cd_timer : Timer = $WaitTimer
 
 const Rarity = {
-	"COMMON": 0.7
-	, "UNCOMMON": 0.3
+	"COMMON": 0.75
+	, "UNCOMMON": 0.25
 }
 
 var dict = {

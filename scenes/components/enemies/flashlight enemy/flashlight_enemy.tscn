@@ -8,7 +8,6 @@
 
 [node name="FlashlightEnemy" type="PathFollow3D"]
 script = ExtResource("1_prel8")
-stop_randomness = "weighted"
 
 [node name="CharacterBody3D" type="StaticBody3D" parent="." groups=["Enemigo"]]
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0, 0)
