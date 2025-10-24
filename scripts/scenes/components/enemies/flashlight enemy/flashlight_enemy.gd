@@ -7,6 +7,9 @@ var stop_points : Array[Marker3D] = []
 
 var _is_stopped : bool = false
 
+var death_timer : float = 0.0
+const death_duration : float = 5.0
+
 @onready var cd_timer : Timer = $WaitTimer
 
 const Rarity = {
@@ -29,6 +32,16 @@ func _ready():
 	Globals.player.flash_area.scare_enemy.connect(continue_path)
 	loop = true
 
+func _process(delta: float) -> void:
+	if !_is_stopped:
+		return
+	
+	death_timer += delta
+	
+	if death_timer >= death_duration:
+		get_tree().quit(0)
+	
+
 func _physics_process(delta : float):
 	if _is_stopped:
 		return
@@ -49,7 +62,10 @@ func _physics_process(delta : float):
 			break
 
 func continue_path():
-	_is_stopped = false if _is_stopped else true
+	if _is_stopped:
+		_is_stopped = false
+		death_timer = 0.0
+	
 	cd_timer.start(3.0)
 
 func weighted_randomness():
