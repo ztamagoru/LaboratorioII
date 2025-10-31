@@ -14,6 +14,11 @@ run/main_scene="uid://cvm6cqln8txh0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://scripts/singletons/globals.gd"
+GUI="*res://scripts/singletons/gui.gd"
+
 [input]
 
 move_forward={

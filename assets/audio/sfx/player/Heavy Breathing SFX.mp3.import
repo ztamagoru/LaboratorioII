@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdlnxtw73pf1w"
+path="res://.godot/imported/Heavy Breathing SFX.mp3-0092ff6d53f01b9ce14f0054d9d6fa2d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/player/Heavy Breathing SFX.mp3"
+dest_files=["res://.godot/imported/Heavy Breathing SFX.mp3-0092ff6d53f01b9ce14f0054d9d6fa2d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

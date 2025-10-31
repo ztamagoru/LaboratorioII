@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8kmbv1scghuu"]
+
+[ext_resource type="Script" uid="uid://elicj6xxg18d" path="res://scripts/hud/in-game/stamina_bar.gd" id="1_qpcqr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crofm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpcqr"]
+bg_color = Color(0, 0, 0, 0.137255)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lktm"]
+bg_color = Color(0.762404, 0.762404, 0.762403, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 3
+
+[node name="StaminaBarHUD" type="Control" node_paths=PackedStringArray("stamina_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qpcqr")
+stamina_bar = NodePath("MarginContainer/PanelContainer/MarginContainer/StaminaBar")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_crofm")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="StaminaBar" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_qpcqr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6lktm")
+value = 50.0
+show_percentage = false
+
+[node name="ToFadeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ToFadeTimer" to="." method="_on_to_fade_timer_timeout"]
