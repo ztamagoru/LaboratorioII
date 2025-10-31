@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvm6cqln8txh0"]
+[gd_scene load_steps=8 format=3 uid="uid://cvm6cqln8txh0"]
 
 [ext_resource type="Texture2D" uid="uid://b5lk0cj8gunfw" path="res://icon.svg" id="1_oqoec"]
 [ext_resource type="PackedScene" uid="uid://lo8hel43hvuk" path="res://scenes/components/player/player.tscn" id="2_6v5sk"]
+[ext_resource type="PackedScene" uid="uid://nak2ja0pbcll" path="res://scenes/components/enemies/flashlight enemy/flashlight_enemy.tscn" id="3_6v5sk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8rpb"]
 size = Vector3(100, 1, 100)
@@ -13,6 +14,14 @@ uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0n4ab"]
 size = Vector3(100, 1, 100)
+
+[sub_resource type="Curve3D" id="Curve3D_6v5sk"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 15, 0, 15, 0, 0, 0, 0, 0, 0, 15, 0, -15, 0, 0, 0, 0, 0, 0, -15, 0, -15, 0, 0, 0, 0, 0, 0, -15, 0, 15),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="Node3D" type="Node3D"]
 
@@ -70,3 +79,23 @@ mesh = SubResource("BoxMesh_0n4ab")
 
 [node name="Player" parent="." instance=ExtResource("2_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Path3D2" type="Path3D" parent="."]
+curve = SubResource("Curve3D_6v5sk")
+
+[node name="FlashlightEnemy" parent="Path3D2" instance=ExtResource("3_6v5sk")]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 15, 0, 15)
+
+[node name="StopPoints" type="Node3D" parent="Path3D2"]
+
+[node name="Marker3D" type="Marker3D" parent="Path3D2/StopPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="Path3D2/StopPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="Path3D2/StopPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="Marker3D4" type="Marker3D" parent="Path3D2/StopPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)

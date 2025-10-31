@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 Globals="*res://scripts/singletons/globals.gd"
 GUI="*res://scripts/singletons/gui.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/convex_cone_shape3d_plugin/plugin.cfg")
+
+[global_group]
+
+Enemigo=""
+
 [input]
 
 move_forward={

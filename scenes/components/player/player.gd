@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
 @export var animation_player : AnimationPlayer
-
 @export var flashlight : SpotLight3D
 
 @onready var stamina_cd_timer : Timer = $StaminaRecoveryTimer
+@onready var flash_area : Area3D = $Camera3D/FlashArea
 
 const speed : float = 5.0
 const sprint_multiplier : float = 2.0
@@ -27,14 +27,15 @@ const gravity : float = 8.0
 
 const flashlight_energy : float = 15.0
 
+var _is_flashlight_on_player : bool = false
+var _is_flashlight_on_code : bool = false
+var _is_flashlight_locked : bool = false
 var _is_crouching : bool = false
-var _is_flashlight_on : bool = false
 var _is_running : bool = false
 var _is_recovering_stamina : bool = false
 
 func _ready():
 	stamina = max_stamina
-	
 	Globals.player = self
 	flashlight.light_energy = 0
 
@@ -71,6 +72,9 @@ func _input(event):
 		_is_crouching = false
 	
 	if event.is_action_pressed("flashlight"):
+		if _is_flashlight_locked:
+			return
+		_is_flashlight_on_player = !_is_flashlight_on_player
 		toggle_flashlight()
 	
 	if event.is_action_pressed("move_sprint"):
@@ -91,9 +95,9 @@ func _input(event):
 			stamina_cd_timer.start(stamina_recovery_cd)
 
 func toggle_flashlight():
-	_is_flashlight_on = !_is_flashlight_on
+	_is_flashlight_on_code = !_is_flashlight_on_code
 	
-	if _is_flashlight_on:
+	if _is_flashlight_on_code:
 		flashlight.light_energy = flashlight_energy
 	else:
 		flashlight.light_energy = 0.0
