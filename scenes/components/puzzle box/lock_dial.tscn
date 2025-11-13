@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://bveey2fglgngk"]
+
+[ext_resource type="Script" uid="uid://cd8d6o6mo8dqv" path="res://scenes/components/puzzle box/lock_dial.gd" id="1_ujk57"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_la4nr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f00sk"]
+material = SubResource("StandardMaterial3D_la4nr")
+height = 0.5
+radial_segments = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujk57"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_doch6"]
+height = 0.5
+
+[node name="LockDial" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_ujk57")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_f00sk")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ujk57")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_doch6")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013581365, 0.49969757)
+text = "0"
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(0.7509645, 0, 0.6603425, 0, 1, 0, -0.6603425, 0, 0.7509645, 0.29751197, 0.013581365, 0.401854)
+text = "1"
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(0.2927389, 0, 0.9561924, 0, 1, 0, -0.9561924, 0, 0.2927389, 0.47489208, 0.013581365, 0.16114028)
+text = "2
+"
+
+[node name="Label3D4" type="Label3D" parent="."]
+transform = Transform3D(-0.35198858, 0, 0.9360042, 0, 1, 0, -0.9360042, 0, -0.35198858, 0.4773412, 0.013581365, -0.15097924)
+text = "3
+"
+
+[node name="Label3D5" type="Label3D" parent="."]
+transform = Transform3D(-0.84295034, 0, 0.5379913, 0, 1, 0, -0.5379913, 0, -0.84295034, 0.28902742, 0.013581365, -0.40928364)
+text = "4
+"
+
+[node name="Label3D6" type="Label3D" parent="."]
+transform = Transform3D(-0.99986196, 0, -0.016614735, 0, 1, 0, 0.016614735, 0, -0.99986196, -0.0015959647, 0.013581365, -0.50107604)
+text = "5
+"
+
+[node name="Label3D7" type="Label3D" parent="."]
+transform = Transform3D(-0.7624877, 0, -0.6470027, 0, 1, 0, 0.6470027, 0, -0.7624877, -0.29882595, 0.013581365, -0.4051696)
+text = "6
+"
+
+[node name="Label3D8" type="Label3D" parent="."]
+transform = Transform3D(-0.32947648, 0, -0.9441638, 0, 1, 0, 0.9441638, 0, -0.32947648, -0.47647026, 0.013581365, -0.15861915)
+text = "7
+"
+
+[node name="Label3D9" type="Label3D" parent="."]
+transform = Transform3D(0.30584487, 0, -0.9520814, 0, 1, 0, 0.9520814, 0, 0.30584487, -0.47387868, 0.013581365, 0.16148555)
+text = "8
+"
+
+[node name="Label3D10" type="Label3D" parent="."]
+transform = Transform3D(0.7627474, 0, -0.6466966, 0, 1, 0, 0.6466966, 0, 0.7627474, -0.29751948, 0.013581365, 0.40220284)
+text = "9
+"

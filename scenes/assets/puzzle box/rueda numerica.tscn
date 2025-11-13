@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b78j3myy6kexu"]
+
+[ext_resource type="PackedScene" uid="uid://vaaad3rre65q" path="res://scenes/assets/puzzle box/rueda_candado.tscn" id="1_hys4t"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018992096, 0.7338453, 1.6450043)
+
+[node name="RuedaCandado02" parent="." instance=ExtResource("1_hys4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0964121, 0.14901334)
+
+[node name="RuedaCandado03" parent="." instance=ExtResource("1_hys4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.543315, 0.14901334)
+
+[node name="RuedaCandado04" parent="." instance=ExtResource("1_hys4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004784018, 0.14901334)

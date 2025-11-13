@@ -21,6 +21,8 @@ const flashlight_energy : float = 15.0
 var _is_crouching : bool = false
 var _is_flashlight_on : bool = false
 
+var camera_locked: bool = false
+
 func _ready() -> void:
 	flashlight.light_energy = 0
 
@@ -29,6 +31,9 @@ func _process(_delta) -> void:
 		get_tree().quit()
 
 func _input(event):
+	if camera_locked:
+		return
+	
 	if event.is_action_pressed("move_crouch"):
 		toggle_crouch()
 	
@@ -48,7 +53,6 @@ func toggle_flashlight():
 		flashlight.light_energy = flashlight_energy
 	else:
 		flashlight.light_energy = 0.0
-	
 
 func toggle_crouch():
 	if _is_crouching:
@@ -57,3 +61,13 @@ func toggle_crouch():
 		animation_player.play("crouch", -1, crouch_speed, false)
 	#print("is crouching: ", _is_crouching)
 	_is_crouching = !_is_crouching
+
+func lock_camera():
+	camera_locked = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	#print("Movimiento del jugador bloqueado")
+
+func unlock_camera():
+	camera_locked = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#print("Movimiento del jugador desbloqueado")

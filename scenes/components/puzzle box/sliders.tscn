@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfvusmom52ala"]
+
+[ext_resource type="PackedScene" uid="uid://bveey2fglgngk" path="res://scenes/components/puzzle box/lock_dial.tscn" id="2_sr3ik"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x8gnj"]
+
+[node name="SliderLock" type="Node3D"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.051238403, 0.60633206, 1.6885227)
+
+[node name="LockDial" parent="." instance=ExtResource("2_sr3ik")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0, 1.0672107, 0)
+
+[node name="LockDial2" parent="." instance=ExtResource("2_sr3ik")]
+transform = Transform3D(0.99999946, 0, 0, 0, 0.99999946, 0, 0, 0, 1, 0, 0.5410511, 0)
+
+[node name="LockDial3" parent="." instance=ExtResource("2_sr3ik")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027832737, 0.16826281, 2.6131175)
+light_energy = 8.0
+spot_range = 7.9332356
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(13.080367, 0, 0, 0, 6.5609756, 0, 0, 0, 0.2709126, 0, 0.15190868, -1.5084622)
+mesh = SubResource("BoxMesh_x8gnj")
+
+[editable path="LockDial"]
+[editable path="LockDial2"]
+[editable path="LockDial3"]
