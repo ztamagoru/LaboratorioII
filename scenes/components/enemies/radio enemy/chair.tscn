@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpa0wrsfhxj55"]
+
+[ext_resource type="Script" uid="uid://coxxlfvhvjwwv" path="res://scenes/components/enemies/radio enemy/chair.gd" id="1_lhth8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lhth8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lhth8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhth8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ib1l"]
+size = Vector3(0.996582, 1, 1)
+
+[node name="Chair" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_lhth8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lhth8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lhth8")
+
+[node name="ChairArea" type="Area3D" parent="." node_paths=PackedStringArray("sit_position")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("1_lhth8")
+sit_position = NodePath("../SitPosition")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChairArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00170898, 0, 0)
+shape = SubResource("BoxShape3D_7ib1l")
+
+[node name="SitPosition" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279857, 0)

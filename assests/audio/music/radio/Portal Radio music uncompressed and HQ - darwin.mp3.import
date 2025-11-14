@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk46b6obapn6j"
+path="res://.godot/imported/Portal Radio music uncompressed and HQ - darwin.mp3-e2ad685f2e7a2f2d40871a53ae52fb32.mp3str"
+
+[deps]
+
+source_file="res://assests/audio/music/radio/Portal Radio music uncompressed and HQ - darwin.mp3"
+dest_files=["res://.godot/imported/Portal Radio music uncompressed and HQ - darwin.mp3-e2ad685f2e7a2f2d40871a53ae52fb32.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
