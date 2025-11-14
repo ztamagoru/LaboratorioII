@@ -33,10 +33,11 @@ var _is_flashlight_locked : bool = false
 var _is_crouching : bool = false
 var _is_running : bool = false
 var _is_recovering_stamina : bool = false
+var camera_locked: bool = false
 
 func _ready():
 	stamina = max_stamina
-	Globals.player = self
+	Globales.player = self
 	flashlight.light_energy = 0
 
 func _process(delta : float):
@@ -63,6 +64,9 @@ func _process(delta : float):
 		get_tree().quit()
 
 func _input(event):
+	if camera_locked:
+		return
+	
 	if event.is_action_pressed("move_crouch"):
 		animation_player.play("crouch", -1, crouch_speed, false)
 		_is_crouching = true
@@ -104,3 +108,21 @@ func toggle_flashlight():
 
 func _on_stamina_recovery_timer_timeout() -> void:
 	_is_recovering_stamina = true
+
+func toggle_crouch():
+	if _is_crouching:
+		animation_player.play("crouch", -1, -crouch_speed, true)
+	else:
+		animation_player.play("crouch", -1, crouch_speed, false)
+	#print("is crouching: ", _is_crouching)
+	_is_crouching = !_is_crouching
+
+func lock_camera():
+	camera_locked = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	#print("Movimiento del jugador bloqueado")
+
+func unlock_camera():
+	camera_locked = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#print("Movimiento del jugador desbloqueado")

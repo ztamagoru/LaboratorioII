@@ -29,7 +29,7 @@ func _ready():
 	
 	#await get_tree().process_frame
 	
-	Globals.player.flash_area.scare_enemy.connect(continue_path)
+	Globales.player.flash_area.scare_enemy.connect(continue_path)
 	loop = true
 
 func _process(delta: float) -> void:

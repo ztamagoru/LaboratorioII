@@ -12,14 +12,14 @@ const fade_duration : float = 1.5
 
 func _ready():
 	await get_tree().process_frame
-	stamina_bar.max_value = Globals.player.max_stamina
+	stamina_bar.max_value = Globales.player.max_stamina
 
 func _process(delta : float):
-	var current_value : float = Globals.player.stamina
+	var current_value : float = Globales.player.stamina
 	
 	stamina_bar.value = current_value
 	
-	if current_value == Globals.player.max_stamina:
+	if current_value == Globales.player.max_stamina:
 		if not _fading and not _faded and _to_fade_cd.is_stopped():
 				_to_fade_cd.start(fade_cd)
 	

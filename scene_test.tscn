@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b5lk0cj8gunfw" path="res://icon.svg" id="1_oqoec"]
 [ext_resource type="PackedScene" uid="uid://lo8hel43hvuk" path="res://scenes/components/player/player.tscn" id="2_6v5sk"]
 [ext_resource type="PackedScene" uid="uid://nak2ja0pbcll" path="res://scenes/components/enemies/flashlight enemy/flashlight_enemy.tscn" id="3_6v5sk"]
+[ext_resource type="PackedScene" uid="uid://dy6m6jl4jqky5" path="res://scenes/components/puzzle box/cofre.tscn" id="3_k8rpb"]
+[ext_resource type="PackedScene" uid="uid://npjrnqscl0im" path="res://scenes/components/player/crosshair.tscn" id="4_k8rpb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8rpb"]
 size = Vector3(100, 1, 100)
@@ -99,3 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
 [node name="Marker3D4" type="Marker3D" parent="Path3D2/StopPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+[node name="CanvasLayer" parent="." instance=ExtResource("4_k8rpb")]
+
+[node name="cofre" parent="." instance=ExtResource("3_k8rpb")]
+transform = Transform3D(22.32, 0, 0, 0, 22.32, 0, 0, 0, 22.32, -1.4983252, 0.054090023, -4.8075514)

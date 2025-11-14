@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5lk0cj8gunfw"
-path.s3tc="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex"
+uid="uid://bo6p5lmemumkf"
+path.s3tc="res://.godot/imported/RuedaCandado02_defaultPolygonShader2_Metallic.png-fa4981f764653c579e4b60ea88e83e29.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex"]
+source_file="res://scenes/assets/puzzle box/tex_slider_cofre/RuedaCandado02_defaultPolygonShader2_Metallic.png"
+dest_files=["res://.godot/imported/RuedaCandado02_defaultPolygonShader2_Metallic.png-fa4981f764653c579e4b60ea88e83e29.s3tc.ctex"]
 
 [params]
 
@@ -39,6 +39,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
