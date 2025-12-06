@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8ygsxp0jsu5x"
-path="res://.godot/imported/kitchen_wall.glb-01ed0eae6ad4b830a201fa4f7f80d4c7.scn"
+uid="uid://df1j5puhd6ogs"
+path="res://.godot/imported/muñecobarco.fbx-fa43d428d06f7a46958a561755bbab0b.scn"
 
 [deps]
 
-source_file="res://assets/meshes/house/walls/kitchen_wall.glb"
-dest_files=["res://.godot/imported/kitchen_wall.glb-01ed0eae6ad4b830a201fa4f7f80d4c7.scn"]
+source_file="res://scenes/assets/puzzle box/muñecobarco.fbx"
+dest_files=["res://.godot/imported/muñecobarco.fbx-fa43d428d06f7a46958a561755bbab0b.scn"]
 
 [params]
 
@@ -30,19 +30,15 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:pCube1": {
-"generate/physics": true
-}
-}
-}
-gltf/naming_version=2
-gltf/embedded_image_handling=1
+_subresources={}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

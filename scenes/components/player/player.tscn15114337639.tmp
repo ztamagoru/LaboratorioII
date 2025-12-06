@@ -169,8 +169,6 @@ script = ExtResource("3_vj2w8")
 message = "chupala"
 
 [node name="Flashlight" type="SpotLight3D" parent="Camera3D/FlashArea"]
-light_indirect_energy = 0.25
-distance_fade_enabled = true
 spot_range = 18.3426
 spot_angle = 37.9391
 

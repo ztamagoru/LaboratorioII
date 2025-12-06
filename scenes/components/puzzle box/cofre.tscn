@@ -106,33 +106,6 @@ heightmap_texture = ExtResource("3_vl107")
 [sub_resource type="SphereShape3D" id="SphereShape3D_gas7k"]
 radius = 0.08170736
 
-[sub_resource type="Animation" id="Animation_a0v8m"]
-resource_name = "abrir_cofre"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.87266463, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.06907648, 0.033835273, -0.11191531), Vector3(0.06907648, 0.04466518, -0.124821894)]
-}
-
 [sub_resource type="Animation" id="Animation_cplle"]
 length = 0.001
 tracks/0/type = "value"
@@ -160,10 +133,64 @@ tracks/1/keys = {
 "values": [Vector3(0.06907648, 0.033835273, -0.11191531)]
 }
 
+[sub_resource type="Animation" id="Animation_a0v8m"]
+resource_name = "abrir_cofre"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.87266463, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.06907648, 0.033835273, -0.11191531), Vector3(0.06907648, 0.04466518, -0.124821894)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_weodv"]
 _data = {
 &"RESET": SubResource("Animation_cplle"),
 &"abrir_cofre": SubResource("Animation_a0v8m")
+}
+
+[sub_resource type="Animation" id="Animation_vl107"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.050975233, 0.009527392, -0.086781755)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415925)]
 }
 
 [sub_resource type="Animation" id="Animation_f0j5p"]
@@ -192,33 +219,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 3.1415925), Vector3(0, 0, 3.2288592), Vector3(0, 0, 3.040608), Vector3(0, 0, 3.1415925), Vector3(1.5707964, 0, 3.1415927)]
-}
-
-[sub_resource type="Animation" id="Animation_vl107"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.050975233, 0.009527392, -0.086781755)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 3.1415925)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jwi01"]

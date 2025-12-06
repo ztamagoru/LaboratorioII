@@ -3,7 +3,7 @@ extends RigidBody3D
 signal value_changed(new_value)
 
 var _is_rotating : bool = false
-var rotation_speed : float = 0.01
+var rotation_speed : float = 0.05
 
 var value : int = 0
 

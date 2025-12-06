@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvm6cqln8txh0"]
+[gd_scene load_steps=12 format=3 uid="uid://cvm6cqln8txh0"]
 
 [ext_resource type="Texture2D" uid="uid://b5lk0cj8gunfw" path="res://icon.svg" id="1_oqoec"]
 [ext_resource type="PackedScene" uid="uid://lo8hel43hvuk" path="res://scenes/components/player/player.tscn" id="2_6v5sk"]
-[ext_resource type="PackedScene" uid="uid://nak2ja0pbcll" path="res://scenes/components/enemies/flashlight enemy/flashlight_enemy.tscn" id="3_6v5sk"]
-[ext_resource type="PackedScene" uid="uid://dy6m6jl4jqky5" path="res://scenes/components/puzzle box/cofre.tscn" id="3_k8rpb"]
-[ext_resource type="PackedScene" uid="uid://npjrnqscl0im" path="res://scenes/components/player/crosshair.tscn" id="4_k8rpb"]
 [ext_resource type="PackedScene" uid="uid://bgtcyrm5itu6l" path="res://scenes/components/enemies/radio enemy/radio.tscn" id="3_6v5sk"]
+[ext_resource type="PackedScene" uid="uid://dy6m6jl4jqky5" path="res://scenes/components/puzzle box/cofre.tscn" id="3_k8rpb"]
 [ext_resource type="PackedScene" uid="uid://cpa0wrsfhxj55" path="res://scenes/components/enemies/radio enemy/chair.tscn" id="4_k8rpb"]
+[ext_resource type="Shader" uid="uid://bqn5ex32h6udo" path="res://shaders/ps1_post_process.gdshader" id="6_0n4ab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8rpb"]
 size = Vector3(100, 1, 100)
@@ -26,6 +25,11 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cf3j"]
+shader = ExtResource("6_0n4ab")
+shader_parameter/viewport_size = Vector2(1280, 960)
+shader_parameter/virtual_resolution = Vector2(320, 240)
 
 [node name="Node3D" type="Node3D"]
 
@@ -103,15 +107,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
 [node name="Marker3D4" type="Marker3D" parent="Path3D2/StopPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
 [node name="CanvasLayer" parent="." instance=ExtResource("4_k8rpb")]
 
 [node name="cofre" parent="." instance=ExtResource("3_k8rpb")]
 transform = Transform3D(22.32, 0, 0, 0, 22.32, 0, 0, 0, 22.32, -1.4983252, 0.054090023, -4.8075514)
+
 [node name="Radio" parent="." node_paths=PackedStringArray("chair_area") instance=ExtResource("3_6v5sk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.51149, 0.615511, -11.2153)
 chair_area = NodePath("../Chair/ChairArea")
 
 [node name="Chair" parent="." instance=ExtResource("4_k8rpb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99168, 0.31023, -12.3487)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_1cf3j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="Chair"]

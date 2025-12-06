@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var correct_combination: Array[int] = [5, 8, 9]
+@export var correct_combination: Array[int] = [4, 2, 5]
 @export var lock_distance: float = 1.5
 
 var current_combination: Array[int] = [0, 0, 0]

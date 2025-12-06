@@ -124,7 +124,7 @@ func kill_player():
 func show_game_over():
 	# Implementar pantalla de Game Over
 	await get_tree().create_timer(2.0).timeout
-	get_tree().paused = true
+	get_tree().change_scene_to_file("res://scenes/menu/start_menu.tscn")
 
 # Funciones para detectar si el jugador está sentado
 func _on_player_sat_down():

@@ -36,6 +36,8 @@ func _process(delta : float):
 			timer = 0.0
 			return
 		
+		#player.flashlight_enemy._is_attacking
+		
 		timer += delta
 		
 		if timer > (lighting_duration / 2) and timer < lighting_duration and _is_blinking == false:

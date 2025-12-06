@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgtcyrm5itu6l"]
+[gd_scene load_steps=6 format=3 uid="uid://bgtcyrm5itu6l"]
 
 [ext_resource type="AudioStream" uid="uid://bk46b6obapn6j" path="res://assests/audio/music/radio/Portal Radio music uncompressed and HQ - darwin.mp3" id="1_kug6g"]
 [ext_resource type="Script" uid="uid://ctvfv37si812h" path="res://scenes/components/enemies/radio enemy/radio.gd" id="1_rdn7j"]
+[ext_resource type="PackedScene" uid="uid://vl45uygk6ltb" path="res://assets/meshes/radio_enemigo.tscn" id="2_4d3qr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rdn7j"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4d3qr"]
+size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Radio" type="RigidBody3D" node_paths=PackedStringArray("radio_music", "pause_timer", "playing_timer")]
 script = ExtResource("1_rdn7j")
@@ -16,14 +19,17 @@ playing_timer = NodePath("PlayingTimer")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rdn7j")
 
+[node name="Radio_enemigo_final" parent="." instance=ExtResource("2_4d3qr")]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_4d3qr")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("1_kug6g")
-volume_db = -20.0
+volume_db = -10.0
 max_db = -10.0
-max_distance = 25.0
+max_distance = 50.0
 bus = &"Music"
 
 [node name="PlayingTimer" type="Timer" parent="."]
@@ -32,3 +38,5 @@ bus = &"Music"
 
 [connection signal="timeout" from="PlayingTimer" to="." method="_on_playing_timer_timeout"]
 [connection signal="timeout" from="PauseTimer" to="." method="_on_pause_timer_timeout"]
+
+[editable path="Radio_enemigo_final"]

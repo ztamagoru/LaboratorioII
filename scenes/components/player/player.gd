@@ -2,11 +2,12 @@ extends CharacterBody3D
 
 @export var animation_player : AnimationPlayer
 @export var flashlight : SpotLight3D
+@export var flashlight_enemy : PathFollow3D
 
 @onready var stamina_cd_timer : Timer = $StaminaRecoveryTimer
 @onready var flash_area : Area3D = $Camera3D/FlashArea
 
-const speed : float = 5.0
+const speed : float = 2.5
 const sprint_multiplier : float = 2.0
 const crouch_speed : float = 4.0
 
@@ -25,7 +26,7 @@ const jump_force : float = 3.5
 const jump_velocity : float = 4.5
 const gravity : float = 8.0
 
-const flashlight_energy : float = 15.0
+const flashlight_energy : float = 7.5
 
 var _is_flashlight_on_player : bool = false
 var _is_flashlight_on_code : bool = false
@@ -59,9 +60,6 @@ func _process(delta : float):
 				_is_recovering_stamina = !_is_recovering_stamina
 	
 	stamina = max_stamina if stamina > max_stamina else 0 if stamina < 0 else stamina
-	
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().quit()
 
 func _input(event):
 	if camera_locked:

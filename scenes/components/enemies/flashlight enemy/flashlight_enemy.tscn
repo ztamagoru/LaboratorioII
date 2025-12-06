@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://nak2ja0pbcll"]
+[gd_scene load_steps=5 format=3 uid="uid://nak2ja0pbcll"]
 
 [ext_resource type="Script" uid="uid://dlefqeais1l1h" path="res://scripts/scenes/components/enemies/flashlight enemy/flashlight_enemy.gd" id="1_prel8"]
+[ext_resource type="AudioStream" uid="uid://c5gxrrjolgg7q" path="res://assets/audio/sfx/Sonido de muerte.mp3" id="2_382ul"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prel8"]
 
@@ -21,3 +22,8 @@ skeleton = NodePath("../..")
 
 [node name="WaitTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="StopSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_382ul")
+volume_db = 10.0
+max_distance = 20.0
