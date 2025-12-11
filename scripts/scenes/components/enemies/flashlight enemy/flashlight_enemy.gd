@@ -6,10 +6,10 @@ const stop_distance : float = 0.05
 var stop_points : Array[Marker3D] = []
 
 var _is_stopped : bool = false
-#var _is_attacking : bool = false
+var _is_attacking : bool = false
 
 var death_timer : float = 0.0
-const death_duration : float = 7.5
+const death_duration : float = 10
 
 @onready var cd_timer : Timer = $WaitTimer
 @onready var stop_sfx : AudioStreamPlayer3D = $StopSFX
@@ -61,7 +61,7 @@ func _physics_process(delta : float):
 			
 			if stopping:
 				stop_sfx.play(0)
-				#_is_attacking = true
+				_is_attacking = true
 				_is_stopped = true
 			break
 

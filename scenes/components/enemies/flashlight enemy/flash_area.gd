@@ -12,7 +12,7 @@ var sequence = []
 var step : int = 0
 var _is_blinking : bool = false
 
-const lighting_duration = 3.0
+const lighting_duration = 2.0
 
 signal scare_enemy
 
@@ -89,12 +89,15 @@ func build_sequence(text : String):
 		
 		sequence.append({"duration": 2.0})
 
-#player.toggle_flashlight()
-
-func _physics_process(_delta: float):
-	for body in self.get_overlapping_bodies():
-		_enemy_spotted = true if body.is_in_group("Enemigo") else false
-
-
 func _on_flashlight_timer_timeout() -> void:
 	_next_step()
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Enemigo"):
+		_enemy_spotted = true
+		timer = 0.0
+
+func _on_body_exited(body: Node3D) -> void:
+	if body.is_in_group("Enemigo"):
+		_enemy_spotted = false
+		timer = 0.0

@@ -223,5 +223,7 @@ one_shot = true
 
 [node name="StaminaBarHUD" parent="CanvasLayer" instance=ExtResource("10_knhup")]
 
+[connection signal="body_entered" from="Camera3D/FlashArea" to="Camera3D/FlashArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera3D/FlashArea" to="Camera3D/FlashArea" method="_on_body_exited"]
 [connection signal="timeout" from="Camera3D/FlashArea/FlashlightTimer" to="Camera3D/FlashArea" method="_on_flashlight_timer_timeout"]
 [connection signal="timeout" from="StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]
