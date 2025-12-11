@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://nak2ja0pbcll"]
+[gd_scene load_steps=6 format=3 uid="uid://nak2ja0pbcll"]
 
 [ext_resource type="Script" uid="uid://dlefqeais1l1h" path="res://scripts/scenes/components/enemies/flashlight enemy/flashlight_enemy.gd" id="1_prel8"]
 [ext_resource type="AudioStream" uid="uid://c5gxrrjolgg7q" path="res://assets/audio/sfx/Sonido de muerte.mp3" id="2_382ul"]
+[ext_resource type="AudioStream" uid="uid://ct3gelvgs6vc3" path="res://assets/audio/sfx/enemies/Step Crack Monster.mp3" id="3_vp6m6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_prel8"]
 
@@ -27,3 +28,11 @@ one_shot = true
 stream = ExtResource("2_382ul")
 volume_db = 10.0
 max_distance = 20.0
+
+[node name="WalkSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_vp6m6")
+volume_db = 10.0
+autoplay = true
+max_distance = 15.0
+
+[connection signal="finished" from="WalkSFX" to="." method="_on_walk_sfx_finished"]

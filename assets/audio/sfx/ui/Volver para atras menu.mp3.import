@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfbwbaudxel2a"
+path="res://.godot/imported/Volver para atras menu.mp3-c3de4ba61655994261b41aab5666d187.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/ui/Volver para atras menu.mp3"
+dest_files=["res://.godot/imported/Volver para atras menu.mp3-c3de4ba61655994261b41aab5666d187.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

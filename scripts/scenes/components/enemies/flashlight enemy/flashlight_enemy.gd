@@ -1,6 +1,6 @@
 extends PathFollow3D
 
-const speed : float = 5.0
+const speed : float = 2.5
 const stop_distance : float = 0.05
 
 var stop_points : Array[Marker3D] = []
@@ -13,6 +13,7 @@ const death_duration : float = 7.5
 
 @onready var cd_timer : Timer = $WaitTimer
 @onready var stop_sfx : AudioStreamPlayer3D = $StopSFX
+@onready var walk_sfx : AudioStreamPlayer3D = $WalkSFX
 
 const Rarity = {
 	"COMMON": 0.75
@@ -31,6 +32,7 @@ func _ready():
 	
 	Globales.player.flash_area.scare_enemy.connect(continue_path)
 	loop = true
+	
 
 func _process(delta: float) -> void:
 	if !_is_stopped:
@@ -68,6 +70,7 @@ func continue_path():
 		_is_stopped = false
 		#_is_attacking = false
 		death_timer = 0.0
+		walk_sfx.play(0)
 	
 	cd_timer.start(3.0)
 
@@ -75,3 +78,7 @@ func weighted_randomness():
 	var key : String = WeightedChoice.pick(dict)
 	print(key)
 	return true if key == "stop" else false
+
+func _on_walk_sfx_finished() -> void:
+	if not _is_stopped:
+		walk_sfx.play(0)

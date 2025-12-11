@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccy3fttxy4ygi"
+path="res://.godot/imported/Conseguir objeto clave.mp3-4dcd9616e17407e112bd1cbff9b633fc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/house/Conseguir objeto clave.mp3"
+dest_files=["res://.godot/imported/Conseguir objeto clave.mp3-4dcd9616e17407e112bd1cbff9b633fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

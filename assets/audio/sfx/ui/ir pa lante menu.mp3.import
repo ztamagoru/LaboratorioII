@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2b6cwrs7ndfx"
+path="res://.godot/imported/ir pa lante menu.mp3-65e9095e74129ff01854c4954f309c05.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/ui/ir pa lante menu.mp3"
+dest_files=["res://.godot/imported/ir pa lante menu.mp3-65e9095e74129ff01854c4954f309c05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
