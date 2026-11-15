@@ -23,7 +23,7 @@ void vertex() {
 		ndc = round(ndc * snap_resolution) / snap_resolution;
 		clip_space_pos.xy = ndc * clip_space_pos.w;
 	}
-	
+	 
 	POSITION = clip_space_pos;
 }
 
